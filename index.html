@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator
+    </title>
+    <style>
+        h1{
+    text-align: center;
+}
+.containt{
+    align-items: center;
+}
+.mx-auto{
+    margin:20px;
+}
+.flex{
+display: flex;
+}
+.flex-col{
+    flex-direction: column;
+}
+body head{
+    height:100%;
+    width:100%;
+}
+.button{
+    padding:20px;
+    margin:0 3px;
+    border-radius:9px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: rgb(192, 192, 192);
+}
+
+#body{
+    height:500px;
+    width:300px;
+    border:8px solid black;
+    margin-left: 500px;
+    background-color: rgb(48, 48, 48);
+    border-radius: 15px;
+}
+.button1{
+    width:52px;
+    padding:20px 0px 20px 0px;
+    margin:0 3px;
+    border-radius:9px;
+    text-align: center;
+    border: 2px solid black;
+    cursor: pointer;
+}
+.zero{
+    width:120px;
+    padding:20px;
+    margin:0 3px;
+    border-radius:9px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+.row{
+    margin:8px 0;
+}
+.btn{
+    background-color: rgb(140, 25, 25);
+}
+.row input{
+    height:60px;
+    width:250px;
+    margin:0;
+    padding:0;
+    border:2px solid black;
+    border-radius: 9px;
+    background-color: rgb(226, 226, 222);
+}
+.yellow{
+    background-color: rgba(0, 0, 255, 0.393);
+}
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    
+    <div id="body">
+        <div class="containt flex flex-col mx-auto m-w-20">
+            <div class="row">
+                <input class="input" type="text" />
+            </div>
+            <div class="row">
+                <button class="button1 btn button" >AC</button>
+                <button class="button1 button">%</button> 
+                <button class="button1 button">%</button>
+                <button class="button  ">/</button>
+            </div>
+            <div class="row">
+                <button class="button">7</button>
+                <button class="button">8</button> 
+                <button class="button">9</button>
+                <button class="button  ">*</button>
+            </div>
+            <div class="row">
+                <button class="button">4</button>
+                <button class="button">5</button> 
+                <button class="button">6</button>
+                <button class="button ">-</button>
+            </div>
+            <div class="row">
+                <button class="button">3</button>
+                <button class="button">2</button> 
+                <button class="button">1</button>
+                <button class="button  ">+</button>
+            </div>
+            <div class="row">
+                <button class="zero button">0</button> 
+                <button class="button">.</button>
+                <button class="button yellow">=</button>
+            </div>
+    </div>
+
+
+
+
+
+
+<script >
+    let string = "";
+let button=document.querySelectorAll('.button');
+Array.from(button).forEach((button)=>{
+    button.addEventListener('click', (e)=>{
+        if(e.target.innerHTML=='='){
+            string =eval(string);
+            document.querySelector('input').value=string;
+        }
+        else if(e.target.innerHTML=='AC'){
+            string = "";
+            document.querySelector('input').value=string;
+        }
+        else{
+            console.log(e.target);
+            string =string +e.target.innerHTML;
+            document.querySelector('input').value=string;
+        }
+    })
+})
+</script>
+</body>
+</html>
